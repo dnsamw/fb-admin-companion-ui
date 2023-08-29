@@ -9,7 +9,7 @@ interface PostCardHorizontalProps {
 }
 import Image from "next/image";
 import Button from "@components/Button";
-import TypeIcon from "./TypeIcon";
+import TypeIcon from "@components/TypeIcon";
 
 export default function PostCardHorizontal({
   title,

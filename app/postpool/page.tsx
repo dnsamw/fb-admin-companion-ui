@@ -177,7 +177,6 @@ export default function postPool() {
 
   const [postType, setPostType] = useState<string>("birthday");
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
     setPostType(e.target.value);
   };
 
