@@ -199,9 +199,16 @@ export default function automation() {
           </div>
         </div>
         <div className="col-span-5 row-span-5 col-start-6  bg-sky-100 p-2 shadow-md shadow-black/5 rounded-xl flex flex-col overflow-y-scroll gap-4">
-          {cards.map(card=>
-          <PostCardHorizontal key={card.id} media={card.image} type={card.type} title={card.name} description={card.message} createdDate={card.createdDate} />
-            )}
+          {cards.map((card) => (
+            <PostCardHorizontal
+              key={card.id}
+              media={card.image}
+              type={card.type}
+              title={card.name}
+              description={card.message}
+              createdDate={card.createdDate}
+            />
+          ))}
         </div>
       </div>
     </div>
