@@ -224,6 +224,7 @@ export default function postPool() {
           <div className="flex flex-col gap-2 col-span-6 row-span-5 col-start-4 bg-sky-50 p-2 shadow-md shadow-black/5 rounded-xl h-[75vh] overflow-y-scroll">
             {cards.map((card) => (
               <PostCardHorizontal
+                id={card.id}
                 title={card.name}
                 type={card.type}
                 description={card.message}

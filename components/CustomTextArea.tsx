@@ -1,13 +1,33 @@
+"use client";
+import { useEffect, useState } from "react";
+
 interface CustomTextAreaProps {
+  defaultValue: string;
   placeholder: string;
-  rows:number;
+  rows: number;
 }
 
-export default function CustomTextArea({ placeholder,rows }: CustomTextAreaProps) {
+export default function CustomTextArea({
+  defaultValue,
+  placeholder,
+  rows,
+}: CustomTextAreaProps) {
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
+
+  const handleValueChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
+  };
+
   return (
     <>
       <textarea
         placeholder={placeholder}
+        onChange={handleValueChange}
+        value={value}
         rows={rows}
         name="search"
         id="search"

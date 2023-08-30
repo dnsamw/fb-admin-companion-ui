@@ -20,7 +20,14 @@ export default function PhotoCreator() {
           <CustomTextArea rows={5} placeholder="Write your caption here.." />
         </div>
         <div className="flex items-center justify-center">
-          <Button name="Create" tailwindColor="bg-sky-500" />
+          <Button
+            handleClick={() => {
+              console.log("From : PhotoCreator.tsx");
+            }}
+            name="Create"
+            tailwindColor="bg-sky-500"
+            tailwindHoverColor="bg-sky-300"
+          />
         </div>
       </div>
     </>

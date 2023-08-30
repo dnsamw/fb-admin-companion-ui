@@ -180,7 +180,7 @@ export default function automation() {
             <h4 className="font-semibold text-md py-4">Birthday Posts</h4>
             <div className="flex flex-col gap-4">
               <ToggleInput text="Automate birthday posts" />
-              <NumberInputX text="Time delay between birthday posts on the same day" />
+              <NumberInputX defaultValue={10} text="Time delay between birthday posts on the same day" />
             </div>
           </div>
           <div className="other-posts">
@@ -201,6 +201,7 @@ export default function automation() {
         <div className="col-span-5 row-span-5 col-start-6  bg-sky-100 p-2 shadow-md shadow-black/5 rounded-xl flex flex-col overflow-y-scroll gap-4">
           {cards.map((card) => (
             <PostCardHorizontal
+              id={card.id}
               key={card.id}
               media={card.image}
               type={card.type}

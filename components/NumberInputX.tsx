@@ -1,13 +1,34 @@
-interface NumberInputXProps{
-    text:string;
+'use client'
+
+import { useEffect, useState } from "react";
+
+interface NumberInputXProps {
+  text: string;
+  defaultValue: number;
 }
 
-export default function NumberInputX({text}:NumberInputXProps) {
+export default function NumberInputX({
+  text,
+  defaultValue,
+}: NumberInputXProps) {
+
+const [value, setValue] = useState(0);
+
+useEffect(() => {
+setValue(defaultValue)
+}, [defaultValue])
+
+const handleValueChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+  setValue(Number(e.target.value))
+}
+
   return (
     <>
       <div className="input flex items-center justify-between px-10">
         <p>{text}</p>
         <input
+          value={value}
+          onChange={handleValueChange}
           type="number"
           min="1"
           placeholder="Ex: 4"

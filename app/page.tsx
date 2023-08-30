@@ -197,7 +197,7 @@ export default function Home() {
                 It seems like your post pool is empty! Go to the{" "}
                 <Link href="/postpool" className="text-sky-500">
                   Post Pool
-                </Link>{" "}
+                </Link>
                 tab in the header section and start creating new posts..
               </p>
             </div>
