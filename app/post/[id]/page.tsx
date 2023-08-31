@@ -80,7 +80,7 @@ const Post = ({ params }: PostProps) => {
                   </h3>
                   <div className="flex w-full gap-4 bg-gray-100 p-4 rounded-xl overflow-x-scroll">
                     {item.groups.map((group) => (
-                      <div key={group.groupId}>
+                      <div key={group.groupId} className="select-none">
                         <div className="flex flex-col gap-2 items-center min-w-40 min-h-40 rounded-xl bg-white p-4 shadow-md shadow-black/5 hover:bg-sky-100 hover:cursor-pointer">
                           <Image
                             src="/assets/images/fb-group.png"
