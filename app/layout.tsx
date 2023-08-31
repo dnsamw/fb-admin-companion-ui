@@ -4,7 +4,7 @@ import NavBar from "@components/NavBar";
 import ContextProvider from "@context/testContext";
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: any;
 }
 
 export const metadata = {

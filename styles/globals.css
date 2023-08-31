@@ -170,9 +170,11 @@
 }
 
 /* SCROLL BAR */
+/* SCROLL BAR */
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px; /* Set the height for horizontal scrollbar */
 }
 
 /* Track */
@@ -190,3 +192,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #bdbdbd;
 }
+

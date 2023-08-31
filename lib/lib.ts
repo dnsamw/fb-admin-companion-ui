@@ -1,4 +1,23 @@
-export const cards: any = [
+
+interface Card {
+  id: number;
+  name: string;
+  message: string;
+  image: string;
+  day: string;
+  type: string; // You might want to use a more specific type here
+  createdDate: string;
+  history: [
+    {
+      id: number;
+      date: string;
+      time: string;
+      groups: { groupId: string; postId: string }[];
+    }
+  ];
+}
+
+export const cards: Card[] = [
   {
     id: 1,
     name: "Nayomi Thakshila",
@@ -7,17 +26,29 @@ export const cards: any = [
     day: "Sep-14",
     type: "birthday",
     createdDate: "2020-Aug-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
           { groupId: "11111", postId: "1524341" },
           { groupId: "22222", postId: "5785676" },
           { groupId: "22222", postId: "5897999" },
+          { groupId: "222w22", postId: "5897999" },
+          { groupId: "2223322", postId: "5897999" },
         ],
       },
-    },
+      {
+        id: 2,
+        date: "2023-may-20",
+        time: "21:32",
+        groups: [
+          { groupId: "11111", postId: "1524341" },
+          { groupId: "2223322", postId: "5897999" },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -27,17 +58,21 @@ export const cards: any = [
     day: "Feb-25",
     type: "birthday",
     createdDate: "2020-May-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
           { groupId: "11111", postId: "1524341" },
           { groupId: "22222", postId: "5785676" },
           { groupId: "22222", postId: "5897999" },
+          { groupId: "223222", postId: "5897999" },
+          { groupId: "2224222", postId: "5897999" },
+          { groupId: "222522", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
   {
     id: 3,
@@ -47,17 +82,20 @@ export const cards: any = [
     day: "Aug-03",
     type: "birthday",
     createdDate: "2020-May-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
           { groupId: "11111", postId: "1524341" },
           { groupId: "22222", postId: "5785676" },
           { groupId: "22222", postId: "5897999" },
+          { groupId: "222w22", postId: "5897999" },
+          { groupId: "2223322", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
   {
     id: 4,
@@ -67,8 +105,9 @@ export const cards: any = [
     day: "Jul-23",
     type: "birthday",
     createdDate: "2020-May-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
@@ -77,7 +116,7 @@ export const cards: any = [
           { groupId: "22222", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
   {
     id: 5,
@@ -87,8 +126,9 @@ export const cards: any = [
     day: "Jul-23",
     type: "birthday",
     createdDate: "2020-May-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
@@ -97,7 +137,7 @@ export const cards: any = [
           { groupId: "22222", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
   {
     id: 6,
@@ -107,8 +147,9 @@ export const cards: any = [
     day: "Jul-13",
     type: "birthday",
     createdDate: "2020-May-01",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
@@ -117,7 +158,7 @@ export const cards: any = [
           { groupId: "22222", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
   {
     id: 7,
@@ -127,8 +168,9 @@ export const cards: any = [
     day: "Dec-17",
     type: "birthday",
     createdDate: "2020-May-11",
-    history: {
-      lastPosted: {
+    history: [
+      {
+        id: 1,
         date: "2023-Jul-23",
         time: "13:20",
         groups: [
@@ -137,6 +179,6 @@ export const cards: any = [
           { groupId: "22222", postId: "5897999" },
         ],
       },
-    },
+    ],
   },
 ];

@@ -1,31 +1,5 @@
 'use client'
 
-type PostType = "birthday" | "announcement" | "other"; // Define all possible types here
-
-interface HistoryGroup {
-  groupId: string;
-  postId: string;
-}
-
-interface HistoryLastPosted {
-  date: string;
-  time: string;
-  groups: HistoryGroup[];
-}
-
-interface Post {
-  id: number;
-  name: string;
-  message: string;
-  image: string;
-  day: string;
-  type: any;
-  createdDate: string;
-  history: {
-    lastPosted: HistoryLastPosted;
-  };
-}
-
 import { ReactElement, createContext, useContext, useState } from "react"
 const initialState:any = { 
   }
