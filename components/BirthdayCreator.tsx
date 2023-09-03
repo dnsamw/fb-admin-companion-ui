@@ -1,9 +1,10 @@
+"use client";
 import Image from "next/image";
-import CustomDatePicker from "./CustomDatePicker";
 import CustomInput from "./CustomInput";
 import CustomTextArea from "./CustomTextArea";
 import Button from "./Button";
 import CustomCalendarDatePicker from "./CustomCalendarDatePicker";
+// import CustomCalendarDatePicker from "./CustomCalendarDatePicker";
 
 export default function BirthdayCreator() {
   return (
@@ -17,7 +18,7 @@ export default function BirthdayCreator() {
             width={300}
             height={0}
             // layout="fill"
-            style={{ width: '300px', height: 'auto' }} 
+            style={{ width: "300px", height: "auto" }}
             // objectFit="contain"
           />
           {/* <CustomDatePicker /> */}

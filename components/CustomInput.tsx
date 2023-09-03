@@ -1,12 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 interface CustomInputProps {
   placeholder: string;
+  defaultValue: string;
 }
 
-export default function CustomInput({ placeholder }: CustomInputProps) {
+export default function CustomInput({
+  placeholder,
+  defaultValue,
+}: CustomInputProps) {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  useEffect(() => {
+    setValue(defaultValue);
+  }, []);
+
   return (
     <>
       <input
+        onChange={handleChange}
         type="text"
+        value={value}
         placeholder={placeholder}
         name="search"
         id="search"

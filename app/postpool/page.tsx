@@ -6,6 +6,7 @@ import SerchBar from "@components/SerchBar";
 import VideoCreator from "@components/VideoCreator";
 import React, { useState } from "react";
 import PostCardHorizontal from "@components/PostCardHorizontal";
+import NavBar from "@components/NavBar";
 
 interface GroupPost {
   groupId: string;
@@ -31,7 +32,7 @@ interface Card {
   history: History;
 }
 
-export default function postPool() {
+export default function PostPool() {
   const cards: Card[] = [
     {
       id: 1,
@@ -182,6 +183,7 @@ export default function postPool() {
 
   return (
     <>
+      <NavBar />
       <div className="searchbar-container flex w-screen p-4">
         <SerchBar />
       </div>

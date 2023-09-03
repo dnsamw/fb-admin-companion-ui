@@ -57,7 +57,12 @@ export default function SerchBar() {
           id="search"
           className="border w-[450px] border-gray-300 rounded-full px-4 py-[10px] focus:outline-none focus:ring-1 focus:ring-sky-500"
         />
-        <Button name="Search" tailwindColor="bg-sky-500"/>
+        <Button
+          handleClick={() => {}}
+          tailwindHoverColor="bg-sky-300"
+          name="Search"
+          tailwindColor="bg-sky-500"
+        />
       </div>
     </div>
   );

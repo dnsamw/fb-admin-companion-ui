@@ -12,16 +12,16 @@ export default function VideoCreator() {
             <video className="rounded-xl bg-slate-500" controls muted>
               <source src="/assets/videos/sample-video.mp4" />
             </video>
-            <Button name="Select video" tailwindColor="bg-sky-500" />
+            <Button handleClick={()=>{}} tailwindHoverColor="bg-sky-300" name="Select video" tailwindColor="bg-sky-500" />
           </div>
 
           <AutomationOptions />
         </div>
         <div className="flex flex-col gap-4">
-          <CustomTextArea rows={5} placeholder="Write your caption here.." />
+          {/* <CustomTextArea rows={5} placeholder="Write your caption here.." /> */}
         </div>
         <div className="flex items-center justify-center">
-          <Button name="Create" tailwindColor="bg-sky-500" />
+          <Button handleClick={()=>{}} tailwindHoverColor="bg-sky-300" name="Create" tailwindColor="bg-sky-500" />
         </div>
       </div>
     </>

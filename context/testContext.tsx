@@ -1,23 +1,53 @@
-'use client'
+"use client";
 
-import { ReactElement, createContext, useContext, useState } from "react"
-const initialState:any = { 
-  }
+import {
+  ReactElement,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+const initialState: any = {};
 
 const Context = createContext(initialState);
-type ChildrenType = {children?:ReactElement | ReactElement[] |undefined}
+type ChildrenType = { children?: ReactElement | ReactElement[] | undefined };
 
-export default function ContextProvider({children}:ChildrenType):ReactElement {
+export default function ContextProvider({
+  children,
+}: ChildrenType): ReactElement {
+  const [postData, setPostData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/posts");
+        const data = await res.json();
+        setPostData(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+    // fetch("http://localhost:3000/api/posts")
+    //   .then((res) => res.json())
+    //   .then((data) => {
 
-const [postData,setPostData] = useState(1)
+    //   })
+    //   .catch((err) => {
+    //     setLoading(false);
+    //   });
+  }, []);
+  console.log("POSTDATA", postData);
 
-
-  return (<Context.Provider value={{postData,setPostData}} >{children}</Context.Provider>)
+  return (
+    <Context.Provider value={{ postData, setPostData, loading }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
-
-export const usePost =()=>{
-  const {postData,setPostData} = useContext(Context)
-  return {postData,setPostData}
-}
+export const usePost = () => {
+  return useContext(Context);
+};

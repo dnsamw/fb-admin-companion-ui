@@ -1,5 +1,6 @@
 "use client";
 import DailyTimeRangeInput from "@components/DailyTimeRangeInput";
+import NavBar from "@components/NavBar";
 import NumberInputX from "@components/NumberInputX";
 import PostCardHorizontal from "@components/PostCardHorizontal";
 import ToggleInput from "@components/ToggleInput";
@@ -173,14 +174,18 @@ export default function automation() {
   ];
 
   return (
-    <div>
+    <>
+      <NavBar />
       <div className="grid grid-cols-10 grid-rows-5 gap-4 w-screen p-4 h-[92vh]">
         <div className="col-span-5 row-span-5 bg-white p-6 shadow-md shadow-black/5 rounded-xl flex flex-col gap-4">
           <div className="birthday-posts">
             <h4 className="font-semibold text-md py-4">Birthday Posts</h4>
             <div className="flex flex-col gap-4">
               <ToggleInput text="Automate birthday posts" />
-              <NumberInputX defaultValue={10} text="Time delay between birthday posts on the same day" />
+              <NumberInputX
+                defaultValue={10}
+                text="Time delay between birthday posts on the same day"
+              />
             </div>
           </div>
           <div className="other-posts">
@@ -212,6 +217,6 @@ export default function automation() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }

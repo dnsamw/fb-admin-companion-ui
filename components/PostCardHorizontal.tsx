@@ -25,13 +25,13 @@ export default function PostCardHorizontal({
     <>
       <Link href={"/post/" + id}>
         <div className="card flex gap-4 items-center justify-between rounded-xl bg-white shadow-md shadow-black/5 min-w-[300px] w-full py-2 px-12 hover:bg-sky-200 hover:cursor-pointer">
-          <div className="cont flex items-center gap-6">
+          <div className="cont flex items-center gap-6 h-15 w-15">
             <Image
               src={media}
               alt={title}
-              height={120}
-              width={120}
-              className="rounded-full object-contain"
+              height={100}
+              width={100}
+              className="rounded-full object-cover h-15 w-15"
             />
             <div className="cont">
               <TypeIcon type={type} />

@@ -1,3 +1,5 @@
+"use client";
+
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import { generateDate, months } from "../utils/calendar";
@@ -9,6 +11,11 @@ export default function CustomCalendarDatePicker() {
   const currentDate = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(currentDate);
+
+  console.log(selectDate);
+
+  //
+
   return (
     <div className="flex gap-2 sm:divide-x justify-center sm:w-1/2 mx-auto items-center sm:flex-row flex-col">
       <div className="">

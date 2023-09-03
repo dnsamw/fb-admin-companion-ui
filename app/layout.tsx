@@ -1,7 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import "@styles/globals.css";
-import NavBar from "@components/NavBar";
 import ContextProvider from "@context/testContext";
+import AuthContext from "@context/authContext";
+import ToasterContext from "@context/ToasterContext";
 
 interface RootLayoutProps {
   children: any;
@@ -25,10 +26,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="gradient" />
           </div>
           <main className="app w-screen">
+            <AuthContext>
+              <ToasterContext />
             <ContextProvider>
-              <NavBar />
               {children}
             </ContextProvider>
+            </AuthContext>
           </main>
         </body>
       </html>

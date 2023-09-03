@@ -1,19 +1,11 @@
-interface TitleCardProps {
-  postCount: number;
-}
-
-export default function TitleCard({ postCount }: TitleCardProps) {
-  const enableClass = postCount > 0 ? "text-black" : "text-gray-400";
-
+export default function TitleCard() {
   return (
     <div className="flex w-full h-28 rounded-xl bg-white p-2 shadow-md shadow-black/5">
       <div className="flex items-center justify-center w-[75%]">
-        <h2 className={"font-semibold text-xl " + enableClass}>
-          {postCount > 0
-            ? `Scheduled posts for today (${new Date()
-                .toISOString()
-                .slice(0, 10)})`
-            : "Scheduled posts for today (Not yet..)"}
+        <h2 className={"font-semibold text-xl text-black"}>
+          {`Scheduled posts for today (${new Date()
+            .toISOString()
+            .slice(0, 10)})`}
         </h2>
       </div>
       <div className="flex flex-col w-[25%] justify-center items-end pr-6">

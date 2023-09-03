@@ -17,7 +17,7 @@ export default function PhotoCreator() {
           <AutomationOptions />
         </div>
         <div className="flex flex-col gap-4">
-          <CustomTextArea rows={5} placeholder="Write your caption here.." />
+          {/* <CustomTextArea rows={5} placeholder="Write your caption here.." /> */}
         </div>
         <div className="flex items-center justify-center">
           <Button
