@@ -71,7 +71,7 @@ import bcrypt from "bcrypt";export const authOptions: AuthOptions = {
         strategy: "jwt",
       },
       secret: process.env.NEXTAUTH_SECRET,
-           debug:true,
+          //  debug:true,
       pages: {
         signIn: "/",
         error: "/",

@@ -19,7 +19,7 @@ const AuthForm = (props: Props) => {
 
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/admin/");
+      router.push("/admin/fblogin");
     }
   }, [router, session]);
 

@@ -58,6 +58,12 @@ export default function NavBar() {
         >
           {links.settings.name}
         </Link>
+
+        <div>
+          <button onClick={()=>signOut()}>
+            LOGOUT
+          </button>
+        </div>
       </div>
     </nav>
   );

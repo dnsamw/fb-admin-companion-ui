@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import AuthForm from "./components/AuthForm";
 
@@ -13,6 +14,7 @@ export default function Auth() {
           alt="FAcebook Admin Companion Logo"
         />
       </div>
+      <h1 className="text-red-600" style={{color:'yellow'}}>jjjj</h1>
       <AuthForm />
     </div>
   );
