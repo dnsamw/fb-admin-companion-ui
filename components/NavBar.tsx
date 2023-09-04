@@ -11,9 +11,9 @@ export default function NavBar() {
   };
 
   const links = {
-    home: { name: "Home", url: "/" },
+    home: { name: "Home", url: "/admin" },
     automation: { name: "Automation", url: "/automation" },
-    postpool: { name: "Post Pool", url: "/postpool" },
+    postpool: { name: "Post Pool", url: "/admin/postpool" },
     settings: { name: "Settings", url: "/settings" },
   };
 

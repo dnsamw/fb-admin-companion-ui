@@ -1,32 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface CustomInputProps {
   placeholder: string;
-  defaultValue: string;
+  name:string
+  setName:Dispatch<SetStateAction<string>>
 }
 
-export default function CustomInput({
-  placeholder,
-  defaultValue,
-}: CustomInputProps) {
-  const [value, setValue] = useState("");
+export default function CustomInput({ placeholder,name,setName }: CustomInputProps) {
+ 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
+  
 
-  useEffect(() => {
-    setValue(defaultValue);
-  }, []);
+
 
   return (
     <>
       <input
-        onChange={handleChange}
+        onChange={(e)=>setName(e.target.value)}
         type="text"
-        value={value}
+        value={name}
         placeholder={placeholder}
         name="search"
         id="search"

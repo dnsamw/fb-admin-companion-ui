@@ -1,34 +1,24 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface CustomTextAreaProps {
-  defaultValue: string;
   placeholder: string;
-  rows: number;
+  rows:number;
+  message:string
+  setMessage:Dispatch<SetStateAction<string>>
 }
 
-export default function CustomTextArea({
-  defaultValue,
-  placeholder,
-  rows,
-}: CustomTextAreaProps) {
-  const [value, setValue] = useState("");
+export default function CustomTextArea({ placeholder,rows,message,setMessage }: CustomTextAreaProps) {
+ 
 
-  useEffect(() => {
-    setValue(defaultValue);
-  }, [defaultValue]);
-
-  const handleValueChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value);
-  };
 
   return (
     <>
       <textarea
-        placeholder={placeholder}
-        onChange={handleValueChange}
-        value={value}
-        rows={rows}
+       placeholder={placeholder}
+       rows={rows}
+       value={message}
+       onChange={(e)=>setMessage(e.target.value)}
         name="search"
         id="search"
         className="border w-full border-gray-300 rounded-2xl px-4 py-[10px] focus:outline-none focus:ring-1 focus:ring-sky-500 shadow-md shadow-black/5"

@@ -12,7 +12,7 @@ export default function CustomCalendarDatePicker() {
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(currentDate);
 
-  console.log(selectDate);
+  // console.log(selectDate);
 
   //
 

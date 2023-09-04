@@ -4,6 +4,8 @@ interface PostCardProps {
   image: string;
   description: string;
   type: string;
+  uuid?: number;
+  id: string;
 }
 
 import Image from "next/image";
@@ -13,14 +15,26 @@ import TypeIcon from "./TypeIcon";
 import CustomTextArea from "./CustomTextArea";
 import CustomInput from "./CustomInput";
 import CustomCalendarDatePicker from "./CustomCalendarDatePicker";
+import { CldUploadButton } from "next-cloudinary";
+import { doc, updateDoc } from "firebase/firestore";
+import { database } from "@firebase";
+import { ColorRing } from "react-loader-spinner";
 
 export default function PostCard({
   title,
   image,
   description,
   type,
+  uuid,
+  id,
 }: PostCardProps) {
   const [showModal, setShowModal] = useState(false);
+
+  const [date, setDate] = useState(new Date());
+  const [name, setName] = useState(title);
+  const [message, setMessage] = useState(description);
+  const [url, setUrl] = useState(image);
+  const [loading, setLoading] = useState(false);
 
   const handleEditButton = () => {
     console.log("PostCrd:Edit Button");
@@ -29,6 +43,25 @@ export default function PostCard({
   const handlePostButton = () => {
     console.log("PostCrd:Post Button");
   };
+  const handleUpload = (result: any) => {
+    setUrl(result?.info?.secure_url);
+  };
+
+  const updatePost = async () => {
+
+    
+    
+    const docRef = doc(database, "Post-Pool", id);
+    setLoading(true);
+    await updateDoc(docRef, {
+      name,
+      image:url,
+      message,
+    });
+    setLoading(false);
+    setShowModal(false)
+  };
+
 
   return (
     <div
@@ -41,7 +74,7 @@ export default function PostCard({
       </div>
       <div className="img">
         <Image
-          src={image}
+          src={url}
           alt={title}
           height={120}
           width={120}
@@ -49,7 +82,7 @@ export default function PostCard({
         />
       </div>
       <div className="title font-semibold text-2xl w-[80%] text-center">
-        {title}
+        {title}{uuid}
       </div>
       <div className="description font-light w-[80%] text-center">
         {description}
@@ -80,14 +113,19 @@ export default function PostCard({
                     <TypeIcon type={type} />
                   </div>
                   <div className="w-full flex justify-center items-center p-6">
-                    <Image
-                      src={image}
-                      alt={title}
-                      height={120}
-                      width={120}
-                      className="rounded-full object-contain w-40 h-40"
-                    />
-
+                    <CldUploadButton
+                      options={{ maxFiles: 1 }}
+                      onUpload={handleUpload}
+                      uploadPreset="ckq2avqm"
+                    >
+                      <Image
+                        src={url}
+                        alt={title}
+                        height={120}
+                        width={120}
+                        className="rounded-full object-contain w-40 h-40"
+                      />
+                    </CldUploadButton>
                     <CustomCalendarDatePicker />
                   </div>
 
@@ -103,14 +141,16 @@ export default function PostCard({
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="text-2xl font-semibold">
-                  <CustomInput
-                    placeholder="Enter post title here.."
-                    defaultValue={title}
-                  />
+                    <CustomInput
+                      placeholder="Enter post title here.."
+                      setName={setName}
+                      name={name}
+                    />
                   </p>
                   <p className="my-4 leading-relaxed">
                     <CustomTextArea
-                      defaultValue={description}
+                      setMessage={setMessage}
+                      message={message}
                       rows={4}
                       placeholder="Write your description here.."
                     />
@@ -125,13 +165,31 @@ export default function PostCard({
                   >
                     Close
                   </button>
-                  <button
-                    className="bg-sky-500 text-white active:bg-sky-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Save Changes
-                  </button>
+                  {loading ? (
+                    <ColorRing
+                      visible={loading}
+                      height="80"
+                      width="80"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                      colors={[
+                        "#e15b64",
+                        "#f47e60",
+                        "#f8b26a",
+                        "#abbd81",
+                        "#849b87",
+                      ]}
+                    />
+                  ) : (
+                    <button
+                      className="bg-sky-500 text-white active:bg-sky-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={updatePost}
+                    >
+                      Save Changes
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

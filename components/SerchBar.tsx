@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-export default function SerchBar() {
+export default function SerchBar({search,setSearch}:any) {
   return (
     <div className="flex w-full h-28 rounded-xl bg-white p-2 shadow-md shadow-black/5">
       <div className="flex w-[50%] justify-center items-center pr-6">
@@ -52,6 +52,8 @@ export default function SerchBar() {
       <div className="flex gap-6 items-center justify-center w-[50%]">
         <input
           type="text"
+          value={search}
+          onChange={(e)=>{setSearch(e.target.value)}}
           placeholder="Search.."
           name="search"
           id="search"

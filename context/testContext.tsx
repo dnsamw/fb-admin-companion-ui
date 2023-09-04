@@ -30,16 +30,9 @@ export default function ContextProvider({
       }
     };
     getData();
-    // fetch("http://localhost:3000/api/posts")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //   });
+    
   }, []);
-  console.log("POSTDATA", postData);
+
 
   return (
     <Context.Provider value={{ postData, setPostData, loading }}>
