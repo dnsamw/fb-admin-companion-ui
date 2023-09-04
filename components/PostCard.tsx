@@ -16,7 +16,7 @@ import CustomTextArea from "./CustomTextArea";
 import CustomInput from "./CustomInput";
 import CustomCalendarDatePicker from "./CustomCalendarDatePicker";
 import { CldUploadButton } from "next-cloudinary";
-import { doc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { database } from "@firebase";
 import { ColorRing } from "react-loader-spinner";
 
@@ -40,8 +40,11 @@ export default function PostCard({
     console.log("PostCrd:Edit Button");
     setShowModal(true);
   };
-  const handlePostButton = () => {
-    console.log("PostCrd:Post Button");
+  const handlePostButton =async () => {
+    const docRef = doc(database, "Post-Pool", id);
+   
+     await deleteDoc(docRef);
+
   };
   const handleUpload = (result: any) => {
     setUrl(result?.info?.secure_url);
@@ -96,7 +99,7 @@ export default function PostCard({
         />
         <Button
           handleClick={handlePostButton}
-          name="Post"
+          name="Delete"
           tailwindColor="bg-sky-500"
           tailwindHoverColor="bg-sky-300"
         />
